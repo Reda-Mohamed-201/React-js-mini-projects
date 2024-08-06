@@ -26,10 +26,10 @@ function CreateOrder() {
   } = useSelector((state) => state.user);
   const isLoadingAddress = addressStatus === 'loading';
 
-  const navigation = useNavigation();
+  const navigation = useNavigation();// check if the form is submitting or its loading now 
   const isSubmitting = navigation.state === 'submitting';
 
-  const formErrors = useActionData();
+  const formErrors = useActionData(); // it return if there exist any error i send in action method 
   const dispatch = useDispatch();
 
   const cart = useSelector(getCart);
@@ -149,7 +149,7 @@ export async function action({ request }) {
     priority: data.priority === 'true',
   };
 
-  console.log(order);
+  // console.log(order);
 
   const errors = {};
   if (!isValidPhone(order.phone))
